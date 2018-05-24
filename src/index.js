@@ -10,6 +10,7 @@ import reducers from './reducers/root-reducer'
 
 // knows it's a .js file
 import Header from './components/header/header-container'
+import Login from './components/login/login-form-container'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
@@ -18,6 +19,7 @@ ReactDOM.render((
     <BrowserRouter>
       <div>
         <Header />
+        <Login />
       </div>
     </BrowserRouter>
   </Provider>
