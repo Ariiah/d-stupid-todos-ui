@@ -9,7 +9,11 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers/root-reducer'
 // knows it's a .js file
 import Header from './components/header/header-container'
-import Login from './components/login/login-form-container'
+import LoginForm from './components/login/login-form-container'
+import TodoIndex from './components/todo/todo-index-container'
+import ProtectRoute from './components/protect-route'
+
+
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
@@ -18,7 +22,7 @@ ReactDOM.render((
     <BrowserRouter>
       <div>
         <Header />
-        <Login />
+        <ProtectRoute path='/' component={TodoIndex} />
       </div>
     </BrowserRouter>
   </Provider>

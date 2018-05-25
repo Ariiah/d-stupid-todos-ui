@@ -1,4 +1,4 @@
-import { LOGIN_PASS, LOGIN_FAIL, LOGOUT } from '../actions/auth-actions'
+import {LOGIN_PASS, LOGIN_FAIL, LOGOUT} from '../actions/auth-actions'
 
 function AuthReducer(state = null, action) {
   const initialState = {
@@ -7,27 +7,35 @@ function AuthReducer(state = null, action) {
     error: null
   }
   if (state) {
-    switch(action.type) {
+    switch (action.type) {
       case LOGIN_PASS:
-      return {
-        ...state,
-        username: action.payload.username,
-        token: action.payload.token,
-        error: null
-      }
+        return {
+          ...state,
+          username: action.payload.username,
+          token: action.payload.token,
+          error: null
+        }
       case LOGIN_FAIL:
-      return {
-        ...state,
-        username: null,
-        password: null,
-        error: action.payload.error
-      }
+        return {
+          ...state,
+          username: null,
+          password: null,
+          error: action.payload.error
+        }
+      case LOGOUT:
+        return {
+          ...state,
+          username: null,
+          token: null,
+          error: null
+        }
       default:
         return state
     }
-  }
-  else {
-    return {...initialState}
+  } else {
+    return {
+      ...initialState
+    }
   }
 }
 
