@@ -7,7 +7,6 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers/root-reducer'
-
 // knows it's a .js file
 import Header from './components/header/header-container'
 import Login from './components/login/login-form-container'
