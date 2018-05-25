@@ -9,8 +9,13 @@ class TodoIndex extends Component {
   }
 
   render() {
+    const todoKeys = Object.keys(this.props.todos)
     return (
-      <h1>Todosss</h1>
+      <div>
+        <h1>Todos</h1>
+        <p>...dont knock out you're todo list</p>
+        { todoKeys.map((id) => <p key={id}>{ this.props.todos[id].item }</p>) }
+      </div>
     )
   }
 }
