@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-// import { loginSubmit } from '../../actions/auth-actions'
-// import { bindActionCreators } from 'redux'
+import { loginSubmit } from '../../actions/auth-actions'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import './login-form-container.css'
+
+// ADD BIND TO LOGINSUBMIT FUNCTION
 
 class LoginForm extends Component {
   constructor(props) {
@@ -27,7 +29,8 @@ class LoginForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    // this.props.loginSubmit({ username: this.state.username, password: this.state.password })
+    // debugger
+    this.props.loginSubmit({ username: this.state.username, password: this.state.password })
   }
 
   render() {
@@ -37,7 +40,7 @@ class LoginForm extends Component {
           <div>
             <label>Username:</label>
             <input
-              placeholder='username'
+              placeholder='Username'
               onChange={this.onusernameChange}
               value={this.state.username} />
           </div>
@@ -57,7 +60,6 @@ class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => state.auth
-// const mapDispatchToProps = (dispatch) => bindActionCreators({ loginSubmit }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ loginSubmit }, dispatch)
 
-// export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
-export default connect(mapStateToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
