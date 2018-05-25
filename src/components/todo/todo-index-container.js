@@ -5,7 +5,7 @@ import { listTodos } from '../../actions/todo-actions'
 
 class TodoIndex extends Component {
   componentDidMount() {
-    this.props.listTodos({ token: this.props.aith.token })
+    this.props.listTodos({ token: this.props.auth.token })
   }
 
   render() {

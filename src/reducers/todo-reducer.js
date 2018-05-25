@@ -6,8 +6,12 @@ function TodoReducer(state = null, action) {
   if (state){
     switch(action.type) {
       case TODOS_LISTED:
-      // debugger
-        return state
+      const todos = action.payload.todos.reduce((acc, x) => {
+        const newObj = { ...acc }
+        newObj[x.id] = x
+        return newObj
+      }, {})
+        return todos
       default:
         return state
     }
